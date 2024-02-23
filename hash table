@@ -1,0 +1,107 @@
+ex.010 Hash table 01
+----------------------------------------
+using System;
+using System.Collections;
+
+namespace ex._010_Hash_table_01
+{
+    class Program
+    {
+        static void Main()
+        {
+            // Създаване на нова хеш таблица
+            Hashtable hashtable = new Hashtable();
+
+            // Добавяне на ключ и стойност в хеш таблицата
+            hashtable.Add("key1", "value1");
+            hashtable.Add("key2", "value2");
+            hashtable.Add("key3", "value3");
+
+            // Достъп до стойност по ключ
+            Console.WriteLine("Value for key1: " + hashtable["key1"]);
+
+            // Проверка за наличие на ключ
+            if (hashtable.ContainsKey("key2"))
+            {
+                Console.WriteLine("Key 'key2' exists.");
+            }
+
+            // Обхождане на всички ключове и стойности в хеш таблицата
+            foreach (DictionaryEntry entry in hashtable)
+            {
+                Console.WriteLine("Key: {0}, Value: {1}", entry.Key, entry.Value);
+            }
+        }
+    }
+}
+
+-----------------------------------
+  ex.011 Hash table 02
+-----------------------------------
+  using System;
+using System.Collections.Generic;
+
+namespace ex._011_Hash_table_02
+{
+    class Program
+    {
+        static void Main()
+        {
+            // Създаване на нова хеш таблица с помощта на Dictionary
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+            // Добавяне на ключ и стойност в хеш таблицата
+            dictionary.Add("key1", "value1");
+            dictionary.Add("key2", "value2");
+            dictionary.Add("key3", "value3");
+
+            // Достъп до стойност по ключ
+            Console.WriteLine("Value for key1: " + dictionary["key1"]);
+
+            // Проверка за наличие на ключ
+            if (dictionary.ContainsKey("key2"))
+            {
+                Console.WriteLine("Key 'key2' exists.");
+            }
+
+            // Обхождане на всички ключове и стойности в хеш таблицата
+            foreach (KeyValuePair<string, string> entry in dictionary)
+            {
+                Console.WriteLine("Key: {0}, Value: {1}", entry.Key, entry.Value);
+            }
+        }
+    }
+}
+
+-------------------------------------------
+  ex.012 Hash table implementation
+-------------------------------------------
+  using System;
+using System.Text;
+
+namespace ex._012_Hash_table_implementation
+{
+    public class SimpleHashFunction
+    {
+        public static int HashFunc(string input)
+        {
+            int hashValue = 0;
+
+            // Обхождаме всеки символ в низа
+            foreach (char c in input)
+            {
+                // Изчисляваме ASCII стойността на текущия символ и я добавяме към общата хеш стойност
+                hashValue += (int)c;
+            }
+
+            return hashValue;
+        }
+
+        public static void Main()
+        {
+            string myString = "Hello, World!";
+            int hashValue = HashFunc(myString);
+            Console.WriteLine("Хеш стойността на низа '{0}' е: {1}", myString, hashValue);
+        }
+
+  
